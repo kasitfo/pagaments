@@ -1,0 +1,27 @@
+      .cap{background-image: url("../img/star2.png");}
+
+      .logo {max-width: 250px;}
+
+      nav {background: linear-gradient(180deg, rgba(1,53,121,1) 10%, rgba(151,197,196,1) 80%);}
+
+      body {background: #d1c7b2;}
+
+      .info {background: #f1fbfe;}
+
+      h2 {margin-top: 20px;}
+
+      footer {background: #f9e4b7;}
+
+
+
+      .btn-twitter {margin: 10px;
+                    background-color: #55acee;}
+
+      .btn-facebook {margin: 10px;
+                    background-color: #3b5998;}
+
+      .btn-whatsapp {margin: 10px;
+                    background-color: #25d366;}
+
+      .btn-telegram {margin: 10px;
+                    background-color: #0088cc;}
