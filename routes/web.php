@@ -17,6 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware(['auth'])->group(function(){
+    
+    /*Routes de Cursos */
+    Route::get('/cursos/index', 'CursController@index')->name('index');
+    Route::get('/cursos/create', 'CursController@create')->name('create');
+    Route::get('/cursos/create', 'CursController@add')->name('add');
+
+});
+
