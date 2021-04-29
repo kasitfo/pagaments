@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Curs;
+use Illuminate\Support\Facades\Log;
 
 use Illuminate\Http\Request;
 
@@ -16,6 +17,6 @@ class CursController extends Controller
     }
 
     public function add(Request $request){
-        
+Log::info($request);        
     }
 }

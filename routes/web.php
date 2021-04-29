@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function(){
     /*Routes de Cursos */
     Route::get('/cursos/index', 'CursController@index')->name('index');
     Route::get('/cursos/create', 'CursController@create')->name('create');
-    Route::get('/cursos/create', 'CursController@add')->name('add');
+    Route::post('/cursos/create', 'CursController@add')->name('add');
 
 });
 
