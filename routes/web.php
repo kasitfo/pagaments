@@ -24,9 +24,12 @@ Auth::routes();
 Route::middleware(['auth'])->group(function(){
     
     /*Routes de Cursos */
-    Route::get('/cursos/index', 'CursController@index')->name('index');
-    Route::get('/cursos/create', 'CursController@create')->name('create');
-    Route::post('/cursos/create', 'CursController@add')->name('add');
+Route::get('/cursos/index', [App\Http\Controllers\CursController::class, 'index'])->name('index');
+Route::get('/cursos/create', [App\Http\Controllers\CursController::class, 'create'])->name('create');
+Route::post('/cursos/create', [App\Http\Controllers\CursController::class, 'insert'])->name('insert');
+Route::post('/cursos/edit', [App\Http\Controllers\CursController::class, 'update'])->name('update');
+Route::get('/cursos/edit/{id}', [App\Http\Controllers\CursController::class, 'edit'])->name('edit');
+Route::get('/cursos/delete/{id}', [App\Http\Controllers\CursController::class, 'delete'])->name('delete');
 
 });
 
