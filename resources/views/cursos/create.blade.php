@@ -6,7 +6,7 @@
     @csrf
     <div class="form-group row">
         <label class="col-lg-1">Curs :</label>
-        <input type="text" placeholder="Introduïx el curs..." name="curs">
+        <input type="text" placeholder="Introduïx el curs..." name="curs" required>
     </div> 
     <div class="form-group row">
         <input type="submit" class="btn btn-primary" value="Enviar">

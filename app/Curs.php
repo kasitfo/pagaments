@@ -15,6 +15,10 @@ class Curs extends Model
         'curs'
     ];
 
+    /**
+     * Definim la relació entre el user_id d'aquest taula amb la taula de users
+     * @return User
+     */
     public function usuari(){
         return $this->belongsTo('App\Models\User', 'user_id');
     }

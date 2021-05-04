@@ -2,6 +2,7 @@
 
 @section('content')
 
+@if (count($cursos) > 0)
 <table class="table">
     <thead>
         <th scope="col">Curs</th>
@@ -19,6 +20,11 @@
         @endforeach
     </tbody>   
 </table>
+@else
+
+<p>No hi ha cursos a mostrar</p>
+
+@endif
 
 <a href="create" class="btn btn-primary">Afegir curs</a>
 

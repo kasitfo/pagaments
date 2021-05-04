@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
     
-    /*Routes de Cursos */
+    /* Routes de Cursos */
 Route::get('/cursos/index', [App\Http\Controllers\CursController::class, 'index'])->name('index');
 Route::get('/cursos/create', [App\Http\Controllers\CursController::class, 'create'])->name('create');
 Route::post('/cursos/create', [App\Http\Controllers\CursController::class, 'insert'])->name('insert');
@@ -31,5 +31,12 @@ Route::post('/cursos/edit', [App\Http\Controllers\CursController::class, 'update
 Route::get('/cursos/edit/{id}', [App\Http\Controllers\CursController::class, 'edit'])->name('edit');
 Route::get('/cursos/delete/{id}', [App\Http\Controllers\CursController::class, 'delete'])->name('delete');
 
+    /* Routes de Categories*/
+Route::get('/categories/index', [App\Http\Controllers\CategoriaController::class, 'index'])->name('index');
+Route::get('/categories/create', [App\Http\Controllers\CategoriaController::class, 'create'])->name('create');
+Route::post('/categories/create', [App\Http\Controllers\CategoriaController::class, 'insert'])->name('insert');
+Route::post('/categories/edit', [App\Http\Controllers\CategoriaController::class, 'update'])->name('update');
+Route::get('/categories/edit/{id}', [App\Http\Controllers\CategoriaController::class, 'edit'])->name('edit');
+Route::get('/categories/delete/{id}', [App\Http\Controllers\CategoriaController::class, 'delete'])->name('delete');
 });
 
