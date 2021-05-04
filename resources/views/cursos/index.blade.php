@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h2 style="color: blue">Cursos</h2>
+
 @if (count($cursos) > 0)
 <table class="table">
     <thead>

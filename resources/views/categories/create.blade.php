@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h2>Categories</h2>
+
 <form method="POST" action="create">
     @csrf
     <div class="form-group row">

@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h2 style="color: blue">Cursos</h2>
+
 <form method="POST" action="/cursos/edit">
     @csrf
     <input type="hidden" name="id" value="{{$curs->id}}">

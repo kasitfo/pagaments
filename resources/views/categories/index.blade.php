@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h2>Categories</h2>
+
 @if (count($categories) > 0)
 <table class="table">
     <thead>

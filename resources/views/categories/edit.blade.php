@@ -2,6 +2,8 @@
 
 @section('content')
 
+<h2>Categories</h2>
+
 <form method="POST" action="/categories/edit">
     @csrf
     <input type="hidden" name="id" value="{{$categoria->id}}">
