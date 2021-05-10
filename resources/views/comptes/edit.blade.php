@@ -4,7 +4,7 @@
 
 <h2 style="color: blue">Comptes</h2>
 
-<form method="POST" action="/cursos/edit">
+<form method="POST" action="/comptes/edit">
     @csrf
     <input type="hidden" name="id" value="{{$compte->id}}">
     <div class="form-group row">
@@ -30,10 +30,9 @@
 
 <script>
 
-    $document.ready(){
-
-        document.title = "Comptes | Editar";
-    }
+    $( document ).ready(function() {
+        document.title = "Comptes | Edit";
+    });
 
 </script>
     

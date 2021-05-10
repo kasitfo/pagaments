@@ -22,7 +22,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
-    
+
+    /* Routes de Cursos */
+Route::get('/pagaments/index', [App\Http\Controllers\PagamentController::class, 'index'])->name('index');
+Route::get('/pagaments/create', [App\Http\Controllers\PagamentController::class, 'create'])->name('create');
+Route::post('/pagaments/create', [App\Http\Controllers\PagamentController::class, 'insert'])->name('insert');
+Route::post('/pagaments/edit', [App\Http\Controllers\PagamentController::class, 'update'])->name('update');
+Route::get('/pagaments/edit/{id}', [App\Http\Controllers\PagamentController::class, 'edit'])->name('edit');
+Route::get('/pagaments/delete/{id}', [App\Http\Controllers\PagamentController::class, 'delete'])->name('delete');
+
     /* Routes de Cursos */
 Route::get('/cursos/index', [App\Http\Controllers\CursController::class, 'index'])->name('index');
 Route::get('/cursos/create', [App\Http\Controllers\CursController::class, 'create'])->name('create');
