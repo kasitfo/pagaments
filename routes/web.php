@@ -19,11 +19,13 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('pagaments/info/{id}', [App\Http\Controllers\PagamentController::class, 'show'])->name('show');
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
 
-    /* Routes de Cursos */
+    /* Routes de Pagaments */
 Route::get('/pagaments/index', [App\Http\Controllers\PagamentController::class, 'index'])->name('index');
 Route::get('/pagaments/create', [App\Http\Controllers\PagamentController::class, 'create'])->name('create');
 Route::post('/pagaments/create', [App\Http\Controllers\PagamentController::class, 'insert'])->name('insert');
@@ -54,6 +56,8 @@ Route::post('/comptes/create', [App\Http\Controllers\CompteController::class, 'i
 Route::post('/comptes/edit', [App\Http\Controllers\CompteController::class, 'update'])->name('update');
 Route::get('/comptes/edit/{id}', [App\Http\Controllers\CompteController::class, 'edit'])->name('edit');
 Route::get('/comptes/delete/{id}', [App\Http\Controllers\CompteController::class, 'delete'])->name('delete');
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 
 });

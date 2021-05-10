@@ -42,6 +42,6 @@
 
 @endif
 
-<a href="create" class="btn btn-primary">Afegir curs</a>
+<a href="create" class="btn btn-primary">Afegir Pagament</a>
 
 @endsection

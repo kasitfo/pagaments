@@ -57,4 +57,9 @@ class PagamentController extends Controller
 
         return redirect ('pagaments/index');
     }
+
+    public function show($id){
+        $pagament = Pagament::find($id);
+        return View('pagaments.show')->with(compact('pagament'));
+    }
 }

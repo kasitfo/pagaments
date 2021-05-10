@@ -37,10 +37,35 @@
 </header>
 
   <!-- Navbar amb les opcions -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/home">Inici</a>
-    
+  @if (Auth::check())
+  <nav class="navbar dropdown navbar-expand-lg navbar-dark bg-dark">
+    <ul>
+      <li style="display:inline; text-decoration:none;"><a href="/cursos/index" style="color:white">Cursos</a></li>
+      <li style="display:inline; text-decoration:none;"><a href="/pagaments/index" style="color:white">Pagaments</a></li>
+      <li style="display:inline; text-decoration:none;"><a href="/categories/index" style="color:white">Categories</a></li>
+      <li style="display:inline; text-decoration:none;"><a href="{{ url('/logout') }}" style="color:white; text-decoration:none;">Logout</a></li>
+    </ul>
+    <!--<a href="{{ url('/cursos/index') }}" style="color:white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Cursos
+    </a>
+    <a href="{{ url('/logout') }}" style="color:white" href="/categories/index" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Categories
+    </a>
+    <a href="/pagaments/index" style="color:white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Pagaments
+    </a>
+    <a href="{{ url('/logout') }}" style="color:white; text-decoration:none;"> Logout </a>-->
   </nav>
+  @else
+  <nav class="navbar dropdown navbar-expand-lg navbar-dark bg-dark">
+    @inject('categories', 'App\Http\Controllers\CategoriaController')
+    {{ $categories->showCategory() }}
+    <a href="{{ url('/login') }}" style="color:white; text-decoration:none;">Login</a>
+  </nav>
+  @endif
+
+
+
 
   <div class="info p-3 px-5">
     @yield('content')

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 use App\Categoria;
 use App\Curs;
+use App\Pagament;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Auth;
+use Illuminate\Support\HtmlString;
 
 class CategoriaController extends Controller
 {
@@ -51,5 +53,21 @@ class CategoriaController extends Controller
         return redirect ('categories/index');
     }
 
+    public function showCategory(){
+        $categories = Categoria::all();
+        $h = "";
+        foreach($categories as $categoria){
+            $pagaments = Pagament::where('categoria_id', '=', $categoria->id)->get();
+            $h.= "<li style='list-style:none'>";  
+            $h.= "<a style='color:white' class='dropdown-toggle' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href=''>".$categoria->categoria."</a>";
+            $h.= "<div class='dropdown-menu'>";
+            foreach($pagaments as $pagament){
+                $h.= "<a class='dropdown-item' href='/pagaments/info/".$pagament->id."'>".$pagament->titol."</a>";
+            }
+            $h.= "</div>";
+            $h.= "</li>";
+        }
+        return new HtmlString($h);
+    }
 
 }
