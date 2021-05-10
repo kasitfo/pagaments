@@ -59,7 +59,7 @@ class CategoriaController extends Controller
         foreach($categories as $categoria){
             $pagaments = Pagament::where('categoria_id', '=', $categoria->id)->get();
             $h.= "<li style='list-style:none'>";  
-            $h.= "<a style='color:white' class='dropdown-toggle' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href=''>".$categoria->categoria."</a>";
+            $h.= "<a style='color:white; margin-left: 20px;' class='dropdown-toggle' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' href=''>".$categoria->categoria."</a>";
             $h.= "<div class='dropdown-menu'>";
             foreach($pagaments as $pagament){
                 $h.= "<a class='dropdown-item' href='/pagaments/info/".$pagament->id."'>".$pagament->titol."</a>";

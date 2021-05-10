@@ -17,7 +17,7 @@
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Preu :</label>
-        <input type="number" placeholder="Introdueïx el preu..." name="preu" value="{{$pagament->preu}}">
+        <input type="number" placeholder="Introdueïx el preu..." name="preu" min="1" value="{{$pagament->preu}}">
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Data d'inici :</label>

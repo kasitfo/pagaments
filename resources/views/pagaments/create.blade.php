@@ -12,19 +12,19 @@
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Descripció :</label>
-        <textarea rows="4" cols="50" name="descripcio" class="ckeditor"></textarea>
+        <textarea rows="4" cols="50" name="descripcio" class="ckeditor" required></textarea>
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Preu :</label>
-        <input type="number" placeholder="Introdueïx el preu..." name="preu">
+        <input type="text" placeholder="Introdueïx el preu..." name="preu" min="1" required>
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Data d'inici :</label>
-        <input type="date" name="data_inici">
+        <input type="date" name="data_inici" required>
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Data de fi :</label>
-        <input type="date" name="data_fi">
+        <input type="date" name="data_fi" required>
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Estat :</label>

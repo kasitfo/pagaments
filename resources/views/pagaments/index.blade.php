@@ -30,7 +30,6 @@
             <td>{{$pagament->estat}}</td>
             <td>
                 <a href="edit/{{$pagament->id}}" alt="Editar curs"><i class="fas fa-pencil-alt"></i></a>
-                <a href="delete/{{$pagament->id}}" alt="Borrar curs"><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
         @endforeach
