@@ -21,7 +21,7 @@ class Categoria extends Model
      * @return User
      */
     public function usuari(){
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\User', 'user_id')->first();
     }
 
     /**

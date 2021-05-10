@@ -38,5 +38,15 @@ Route::post('/categories/create', [App\Http\Controllers\CategoriaController::cla
 Route::post('/categories/edit', [App\Http\Controllers\CategoriaController::class, 'update'])->name('update');
 Route::get('/categories/edit/{id}', [App\Http\Controllers\CategoriaController::class, 'edit'])->name('edit');
 Route::get('/categories/delete/{id}', [App\Http\Controllers\CategoriaController::class, 'delete'])->name('delete');
+
+    /* Routes de Comptes*/
+Route::get('/comptes/index', [App\Http\Controllers\CompteController::class, 'index'])->name('index');
+Route::get('/comptes/create', [App\Http\Controllers\CompteController::class, 'create'])->name('create');
+Route::post('/comptes/create', [App\Http\Controllers\CompteController::class, 'insert'])->name('insert');
+Route::post('/comptes/edit', [App\Http\Controllers\CompteController::class, 'update'])->name('update');
+Route::get('/comptes/edit/{id}', [App\Http\Controllers\CompteController::class, 'edit'])->name('edit');
+Route::get('/comptes/delete/{id}', [App\Http\Controllers\CompteController::class, 'delete'])->name('delete');
+
+
 });
 

@@ -8,7 +8,7 @@
     @csrf
     <div class="form-group row">
         <label class="col-lg-2">Categoria :</label>
-        <input type="text" placeholder="Introduïx el curs..." name="categoria" required>
+        <input type="text" placeholder="Introdueïx la categoria..." name="categoria" required>
     </div>
     <div class="form-group row">
         <label class="col-lg-2">Curs :</label>

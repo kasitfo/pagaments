@@ -20,7 +20,7 @@ class Curs extends Model
      * @return User
      */
     public function usuari(){
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo('App\Models\User', 'user_id')->first();
     }
 
 

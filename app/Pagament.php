@@ -22,4 +22,6 @@ class Pagament extends Model
         'data_fi',
         'estat'
     ];
+
+    
 }
