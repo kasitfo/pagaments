@@ -15,7 +15,7 @@
         @foreach($categories as $categoria)
         <tr>
             <td>{{$categoria->categoria}}</td>
-            <td>{{$categoria->curs()->curs}}</td>
+            <td>{{ !is_null($categoria->curs_id) ? $categoria->curs()->curs : '' }}</td>
             <td>
                 <a href="edit/{{$categoria->id}}" alt="Editar categoria"><i class="fas fa-pencil-alt"></i></a>
                 <a href="delete/{{$categoria->id}}" alt="Borrar categoria"><i class="fas fa-trash-alt"></i></a>
