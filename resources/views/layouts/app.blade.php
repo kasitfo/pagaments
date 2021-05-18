@@ -59,9 +59,13 @@
                 <a class="nav-link" href="/categories/index">Categories <span class="sr-only">(current)</span></a>
               </li>
 
-               <li class="nav-item active">
+              @if(Auth::user()->perfil === 1)
+
+              <li class="nav-item active">
                 <a class="nav-link" href="/users/index">Usuaris <span class="sr-only">(current)</span></a>
               </li>
+
+              @endif
 
             </ul>
 

@@ -50,14 +50,18 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-md-6 offset-md-4">
                         {!! NoCaptcha::renderJs() !!}
                         {!! NoCaptcha::display() !!}
-
+                        </div>
                         @if ($errors->has('g-recaptcha-response'))
                             <span class="feedbak-error" style="color: red;">
                                 <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                             </span>
                         @endif
+
+                        <br>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
