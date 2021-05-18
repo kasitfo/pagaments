@@ -38,35 +38,68 @@
 
   <!-- Navbar amb les opcions -->
   @if (Auth::check())
-  <nav class="navbar dropdown navbar-expand-lg navbar-dark bg-dark">
-    <ul>
-      <li style="display:inline; text-decoration:none;"><a href="/cursos/index" style="color:white; margin-left:20px;">Cursos</a></li>
-      <li style="display:inline; text-decoration:none;"><a href="/pagaments/index" style="color:white; margin-left:20px;">Pagaments</a></li>
-      <li style="display:inline; text-decoration:none;"><a href="/categories/index" style="color:white; margin-left:20px;">Categories</a></li>
-      <li style="display:inline; text-decoration:none;"><a href="/users/index" style="color:white; margin-left:20px;">Usuaris</a></li>
-      <li style="display:inline; text-decoration:none;"><a href="{{ url('/logout') }}" style="color:white; text-decoration:none; margin-left:20px;">Logout</a></li>
-    </ul>
-    <!--<a href="{{ url('/cursos/index') }}" style="color:white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Cursos
-    </a>
-    <a href="{{ url('/logout') }}" style="color:white" href="/categories/index" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Categories
-    </a>
-    <a href="/pagaments/index" style="color:white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Pagaments
-    </a>
-    <a href="{{ url('/logout') }}" style="color:white; text-decoration:none;"> Logout </a>-->
-  </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/home">Inici</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item active">
+                <a class="nav-link" href="/cursos/index">Cursos <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="/pagaments/index">Pagaments <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="/categories/index">Categories <span class="sr-only">(current)</span></a>
+              </li>
+
+               <li class="nav-item active">
+                <a class="nav-link" href="/users/index">Usuaris <span class="sr-only">(current)</span></a>
+              </li>
+
+            </ul>
+
+              <button type="button" class="btn btn-default btn-lg text-light">
+                <a class="nav-link text-light" href="{{ url('/logout') }}">Logout <span class="sr-only">(current)</span></a>
+              </button>
+
+          </div>
+        </nav>
+
   @else
-  <nav class="navbar dropdown navbar-expand-lg navbar-dark bg-dark">
-    @inject('categories', 'App\Http\Controllers\CategoriaController')
-    {{ $categories->showCategory() }}
-    <a href="{{ url('/register') }}" style="color:white; text-decoration:none; margin-left:20px;">Register</a>
-    <a href="{{ url('/login') }}" style="color:white; text-decoration:none; margin-left:20px;">Login</a>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{{ url('/login') }}">Inici</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+              @inject('categories', 'App\Http\Controllers\CategoriaController')
+              {{ $categories->showCategory() }}
+            </li>
+
+          </ul>
+
+            <button type="button" class="btn btn-default btn-lg text-light">
+              <a class="text-light" href="{{ url('/register') }}">Register <span class="sr-only">(current)</span></a>
+            </button>
+
+            <button type="button" class="btn btn-default btn-lg text-light">
+              <a class="text-light" href="{{ url('/login') }}">Login <span class="sr-only">(current)</span></a>
+            </button>
+
+        </div>
+    </nav>
   @endif
-
-
 
 
   <div class="info p-3 px-5">
