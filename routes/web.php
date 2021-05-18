@@ -25,6 +25,14 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function(){
 
+    /* Routes de Users */
+    Route::get('/users/index', [App\Http\Controllers\UserController::class, 'index'])->name('index');
+    Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('create');
+    Route::post('/users/create', [App\Http\Controllers\UserController::class, 'insert'])->name('insert');
+    Route::post('/users/edit', [App\Http\Controllers\UserController::class, 'update'])->name('update');
+    Route::get('/users/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('edit');
+    Route::get('/users/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('delete');
+
     /* Routes de Pagaments */
 Route::get('/pagaments/index', [App\Http\Controllers\PagamentController::class, 'index'])->name('index');
 Route::get('/pagaments/create', [App\Http\Controllers\PagamentController::class, 'create'])->name('create');

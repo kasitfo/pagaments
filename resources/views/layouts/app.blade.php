@@ -43,6 +43,7 @@
       <li style="display:inline; text-decoration:none;"><a href="/cursos/index" style="color:white; margin-left:20px;">Cursos</a></li>
       <li style="display:inline; text-decoration:none;"><a href="/pagaments/index" style="color:white; margin-left:20px;">Pagaments</a></li>
       <li style="display:inline; text-decoration:none;"><a href="/categories/index" style="color:white; margin-left:20px;">Categories</a></li>
+      <li style="display:inline; text-decoration:none;"><a href="/users/index" style="color:white; margin-left:20px;">Usuaris</a></li>
       <li style="display:inline; text-decoration:none;"><a href="{{ url('/logout') }}" style="color:white; text-decoration:none; margin-left:20px;">Logout</a></li>
     </ul>
     <!--<a href="{{ url('/cursos/index') }}" style="color:white" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

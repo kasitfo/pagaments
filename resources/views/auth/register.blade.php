@@ -59,6 +59,7 @@
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" minlength="8" maxlength="15">
                             </div>
+                            <input type="hidden" name="perfil" value="{{0}}">
                         </div>
 
                         <div class="form-group row mb-0">
