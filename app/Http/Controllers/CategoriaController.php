@@ -11,23 +11,41 @@ use Auth;
 use Illuminate\Support\HtmlString;
 
 class CategoriaController extends Controller
-{
+{   
+    /**
+     * Ens retorna la vista categories/index
+     * @return View
+     */
     public function index(){
         $categories = Categoria::all();
         return view ('categories.index')->with(compact('categories'));
     }
 
+    /**
+     * Funció que ens valida desde el backend els camps que ens arriben per request
+     * @param Array $data
+     * @return View
+     */
     protected function validator($data){
         return $data->validate([
             'categoria' => ['required', 'string', 'max:150']
         ]);
     }
 
+    /**
+     * Ens retorna la vista categories/create
+     * @return View
+     */
     public function create(){
         $cursos = Curs::all();
         return view ('categories.create')->with(compact('cursos'));
     }
 
+    /**
+     * Funció que ens inserta els camps introduïts en el formulari a la taula.
+     * @param Request $request
+     * @return View
+     */
     public function insert(Request $request){  
         $this->validator($request); 
         $datos = $request->except('_token');   
@@ -38,12 +56,22 @@ class CategoriaController extends Controller
         return redirect ('categories/index');
     }
 
+    /**
+     * Ens carrega la vista categories/edit amb els camps de l'id que li hem passat
+     * @param int $id
+     * @return View
+     */
     public function edit($id){
         $categoria = Categoria::find($id);
         $cursos = Curs::all();
         return view('categories/edit' , compact('categoria', 'cursos') );
     }
 
+    /**
+     * Ens fa un update de la entrada que estavem modificant i ho guardem a la taula.
+     * @param Request $request
+     * @return View
+     */
     public function update(Request $request){  
         $this->validator($request); 
         $datos = Categoria::find($request->id);
@@ -54,6 +82,11 @@ class CategoriaController extends Controller
         return redirect ('categories/index');
     }
 
+    /**
+     * Ens borra la instancia que hem clicat
+     * @param int $id
+     * @return View
+     */
     public function delete($id){
         $categoria = Categoria::find($id);
         $categoria->delete();
@@ -61,6 +94,10 @@ class CategoriaController extends Controller
         return redirect ('categories/index');
     }
 
+    /**
+     * Ens retorna el menu en de l'inici
+     * @return HTMLString
+     */
     public function showCategory(){
         $categories = Categoria::all();
         $h = "";
@@ -78,6 +115,9 @@ class CategoriaController extends Controller
         return new HtmlString($h);
     }
 
+    /**
+     * Ens imprimeix el CRUD en qüestió
+     */
     public function imprimir(){
         $categories = Categoria::all();
         $filename = "Categories.pdf";
