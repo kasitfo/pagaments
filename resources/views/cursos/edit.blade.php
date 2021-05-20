@@ -11,6 +11,15 @@
         <label class="col-lg-1">Curs :</label>
         <input type="text" name="curs" value="{{$curs->curs}}" required>
     </div> 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="form-group row">
         <input type="submit" class="btn btn-primary" value="Enviar">
     </div>

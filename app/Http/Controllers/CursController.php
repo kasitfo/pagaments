@@ -14,11 +14,18 @@ class CursController extends Controller
         return view ('cursos.index')->with(compact('cursos'));
     }
 
+    protected function validator($data){
+        return $data->validate([
+            'curs' => ['required', 'string', 'max:50']
+        ]);
+    }
+
     public function create(){
         return view ('cursos.create');
     }
 
     public function insert(Request $request){   
+        $this->validator($request); 
         $datos = $request->except('_token');
         $user = Auth::user();
         $datos['user_id'] = $user->id ;
@@ -31,7 +38,8 @@ class CursController extends Controller
         return view('cursos/edit' , compact('curs') );
     }
 
-    public function update(Request $request){  
+    public function update(Request $request){ 
+        $this->validator($request); 
         $datos = Curs::find($request->id);
         $datos->curs = $request->curs;
         $datos->save();
@@ -44,5 +52,20 @@ class CursController extends Controller
         $curs->delete();
 
         return redirect ('cursos/index');
+    }
+
+    public function imprimir(){
+        $cursos = Curs::all();
+        $filename = "Cursos.pdf";
+        $file = base_path().'/storage/'.$filename;
+        $view = View::Make( 'cursos/imprimir' , compact('cursos') )->render();
+        $pdf = \App::make( 'dompdf.wrapper' );
+        $pdf->loadHTML($view);
+        $output = $pdf->output();
+        file_put_contents($file, $output);
+
+        header('Content-type: application/pdf');
+        header('Content-Disposition: attachment; filename"'.$filename.'"');
+        readfile($file);
     }
 }

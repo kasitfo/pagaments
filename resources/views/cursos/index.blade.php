@@ -5,6 +5,7 @@
 <h2 style="color: blue">Cursos</h2>
 
 @if (count($cursos) > 0)
+<p>Imprimir CRUD de Cursos<a href="imprimir" alt="Imprimir curs"><i class="fas fa-print"></i></a>
 <table class="table">
     <thead>
         <th scope="col">Curs</th>

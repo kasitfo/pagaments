@@ -15,13 +15,25 @@ class PagamentController extends Controller
         return view('pagaments.index')->with(compact('pagaments'));
     }
 
+    protected function validator($data){
+        return $data->validate([
+            'titol' => ['required', 'string', 'max:150'],
+            'descripcio' => ['required'],
+            'preu' => ['required'],
+            'data_inici' => ['required'],
+            'data_fi' => ['required'],
+            'estat' => ['required']
+        ]);
+    }
+
     public function create(){
         $categories = Categoria::all();
         $comptes = Compte::all();
         return view ('pagaments.create')->with(compact('categories', 'comptes'));
     }
 
-    public function insert(Request $request){   
+    public function insert(Request $request){ 
+        $this->validator($request);   
         $datos = $request->except('_token');
         $user = Auth::user();
         $datos['user_id'] = $user->id ;
@@ -37,6 +49,7 @@ class PagamentController extends Controller
     }
 
     public function update(Request $request){  
+        $this->validator($request); 
         $datos = Pagament::find($request->id);
         $datos->titol = $request->titol;        
         $datos->descripcio = $request->descripcio;

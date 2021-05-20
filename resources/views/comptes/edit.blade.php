@@ -18,7 +18,16 @@
     <div class="form-group row">
         <label class="col-lg-2">Clau :</label>
         <input type="text" name="clau" value="{{$compte->clau}}" required>
-    </div> 
+    </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
     <div class="form-group row">
         <input type="submit" class="btn btn-primary" value="Enviar">
     </div>

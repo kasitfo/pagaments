@@ -17,12 +17,19 @@ class CategoriaController extends Controller
         return view ('categories.index')->with(compact('categories'));
     }
 
+    protected function validator($data){
+        return $data->validate([
+            'categoria' => ['required', 'string', 'max:150']
+        ]);
+    }
+
     public function create(){
         $cursos = Curs::all();
         return view ('categories.create')->with(compact('cursos'));
     }
 
-    public function insert(Request $request){   
+    public function insert(Request $request){  
+        $this->validator($request); 
         $datos = $request->except('_token');   
         $user = Auth::user();
         $datos['user_id'] = $user->id ;
@@ -38,6 +45,7 @@ class CategoriaController extends Controller
     }
 
     public function update(Request $request){  
+        $this->validator($request); 
         $datos = Categoria::find($request->id);
         $datos->categoria = $request->categoria;
         $datos->curs_id = $request->curs_id;
@@ -68,6 +76,21 @@ class CategoriaController extends Controller
             $h.= "</li>";
         }
         return new HtmlString($h);
+    }
+
+    public function imprimir(){
+        $categories = Categoria::all();
+        $filename = "Categories.pdf";
+        $file = base_path().'/storage/'.$filename;
+        $view = View::Make( 'categories/imprimir' , compact('categories') )->render();
+        $pdf = \App::make( 'dompdf.wrapper' );
+        $pdf->loadHTML($view);
+        $output = $pdf->output();
+        file_put_contents($file, $output);
+
+        header('Content-type: application/pdf');
+        header('Content-Disposition: attachment; filename"'.$filename.'"');
+        readfile($file);
     }
 
 }

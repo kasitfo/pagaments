@@ -26,7 +26,7 @@
     <!-- <img src="img/star2.png" class="img-fluid img-responsive"> -->
 
     <div class="col text-right p-4">
-      <img src="{{url('img/logo_2.png')}}" class="logo float-left">
+      <img src="{{url('img/logo_2.png')}}" class="logo float-left" alt="Logo INS Camí de Mar">
     </div>
 
     <div class="col p-4">
@@ -53,6 +53,10 @@
 
               <li class="nav-item active">
                 <a class="nav-link" href="/pagaments/index">Pagaments <span class="sr-only">(current)</span></a>
+              </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="/comptes/index">Comptes <span class="sr-only">(current)</span></a>
               </li>
 
               <li class="nav-item active">

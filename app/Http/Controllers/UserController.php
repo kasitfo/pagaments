@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use Illuminate\Support\Facades\View;
 
 use Illuminate\Http\Request;
 
@@ -43,6 +44,21 @@ class UserController extends Controller
         $user->delete();
 
         return redirect ('users/index');
+    }
+
+    public function imprimir(){
+        $users = User::all();
+        $filename = "Usuaris.pdf";
+        $file = base_path().'/storage/'.$filename;
+        $view = View::Make( 'users/imprimir' , compact('users') )->render();
+        $pdf = \App::make( 'dompdf.wrapper' );
+        $pdf->loadHTML($view);
+        $output = $pdf->output();
+        file_put_contents($file, $output);
+
+        header('Content-type: application/pdf');
+        header('Content-Disposition: attachment; filename"'.$filename.'"');
+        readfile($file);
     }
 
 

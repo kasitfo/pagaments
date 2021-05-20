@@ -2,9 +2,10 @@
 
 @section('content')
 
-<h2>Categories</h2>
+<h2 style="color: blue">Categories</h2>
 
 @if (count($categories) > 0)
+<p>Imprimir CRUD de Categories<a href="imprimir" alt="Imprimir curs"><i class="fas fa-print"></i></a>
 <table class="table">
     <thead>
         <th scope="col">Categories</th>

@@ -5,6 +5,7 @@
 <h2 style="color: blue">Usuaris</h2>
 
 @if (count($users) > 0)
+<p>Imprimir CRUD de Usuaris<a href="imprimir" alt="Imprimir curs"><i class="fas fa-print"></i></a>
 <table class="table">
     <thead>
         <th scope="col">Nom</th>
