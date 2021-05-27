@@ -79,7 +79,7 @@
                 <table>
                     <thead>
                         <tr style="background-color: #ddd;">
-                            <th style="width:110mm; padding-top: 2mm; padding-bottom: 2mm;">Curs</th>
+                            <th style="width:160mm; padding-top: 2mm; padding-bottom: 2mm;">Curs</th>
                         </tr>            
                     </thead>
                 </table>
@@ -93,7 +93,7 @@
                 <tbody style="font-size:10;">
                     @foreach( $cursos as $curs )
                     <tr>
-                        <td style="left:0mm; width:110mm; border-bottom: 1px solid #ddd; padding-top:2mm; padding-bottom:2mm;">{{$curs->curs}}</td>
+                        <td style="left:0mm; width:160mm; border-bottom: 1px solid #ddd; padding-top:2mm; padding-bottom:2mm;">{{$curs->curs}}</td>
                     </tr>
                     @endforeach
                 </tbody>

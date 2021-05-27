@@ -95,7 +95,7 @@
                     @foreach( $categories as $categoria )
                     <tr>
                         <td style="left:0mm; width:110mm; border-bottom: 1px solid #ddd; padding-top:2mm; padding-bottom:2mm;">{{$categoria->categoria}}</td>
-                        <td style="left:0mm; width:50mm; border-bottom: 1px solid #ddd; padding-top:2mm; padding-bottom:2mm;">{{$categoria->curs()->curs}}</td>
+                        <td style="left:0mm; width:50mm; border-bottom: 1px solid #ddd; padding-top:2mm; padding-bottom:2mm;">{{!is_null($categoria->curs_id) ? $categoria->curs()->curs : ''}}</td>
                     </tr>
                     @endforeach
                 </tbody>
